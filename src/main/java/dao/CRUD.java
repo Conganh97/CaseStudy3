@@ -1,10 +1,8 @@
 package dao;
 
-import Models.Sanpham;
-
 import java.util.List;
 
-public interface IService<E> {
+public interface CRUD<E> {
     public List<E> getAll();
     public boolean create(E e);
     public boolean edit(int id,E e);

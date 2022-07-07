@@ -113,7 +113,7 @@ public class SanphamServlet extends HttpServlet {
     }
 
     private void editSanpham(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException, ParseException {
-        int idsp = Integer.parseInt(request.getParameter("idsp"));
+        int idsp = Integer.parseInt(request.getParameter("id"));
         String tensp = request.getParameter("tensp");
         String dvt = request.getParameter("dvt");
         String mota = request.getParameter("mota");

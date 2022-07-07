@@ -1,10 +1,10 @@
-package connect_MySQL;
+package Connect;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class Connect_MySQL {
+public class ConnectMySql {
     public static Connection getConnect(){
         try {
             Class.forName("com.mysql.jdbc.Driver");
