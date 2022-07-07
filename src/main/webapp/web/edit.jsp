@@ -21,7 +21,7 @@
 <p>
     <a href="/sanpham">Back to product list</a>
 </p>
-<form method="post" action="/sanpham">
+<form method="post">
     <fieldset>
         <legend>Product information</legend>
         <table>

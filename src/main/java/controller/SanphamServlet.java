@@ -119,7 +119,7 @@ public class SanphamServlet extends HttpServlet {
         Float gia = Float.valueOf(request.getParameter("gia"));
         String img = request.getParameter("img");
         String loaisp = request.getParameter("loaisp");
-        Sanpham sanpham = new Sanpham(tensp, dvt, mota, gia, img, loaisp);
+        Sanpham sanpham = new Sanpham(idsp,tensp, dvt, mota, gia, img, loaisp);
         sanPhamDao.edit(idsp,sanpham);
         listStudent(request,response);
     }
