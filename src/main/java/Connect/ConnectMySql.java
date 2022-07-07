@@ -10,7 +10,7 @@ public class ConnectMySql {
             Class.forName("com.mysql.jdbc.Driver");
             String url = "jdbc:mysql://localhost:3306/OrderManager?useSSL=false";
             String username = "root";
-            String pass = "N258521";
+            String pass = "vietvu23061997";
             return DriverManager.getConnection(url,username,pass);
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();

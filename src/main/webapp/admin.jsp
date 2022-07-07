@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
-  User: ADMIN
+  User: Admin
   Date: 7/6/2022
-  Time: 3:09 PM
+  Time: 10:02 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
@@ -12,6 +12,6 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Day la giohang.jsp</h1>
+day la admin.jsp
 </body>
 </html>

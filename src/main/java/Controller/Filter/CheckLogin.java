@@ -6,7 +6,7 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
 
-@WebFilter(urlPatterns = "/giohang")
+@WebFilter(urlPatterns = "/giohang/*")
 public class CheckLogin implements Filter {
     RequestDispatcher dispatcher = null;
     @Override
@@ -21,10 +21,10 @@ public class CheckLogin implements Filter {
             dispatcher.forward(request, response);
         } else {
             if (Login.user.getChucvu().equals("admin")) {
-                dispatcher = request.getRequestDispatcher("/admin");
+                dispatcher = request.getRequestDispatcher("/admin.jsp");
                 dispatcher.forward(request, response);
             } else {
-                dispatcher = request.getRequestDispatcher("/index");
+                dispatcher = request.getRequestDispatcher("/giohang.jsp");
                 dispatcher.forward(request, response);
             }
         }
