@@ -1,7 +1,6 @@
 package Controller;
 
 import Models.Sanpham;
-import com.sun.tools.doclint.HtmlTag;
 import Dao.SanPhamDao;
 
 import javax.servlet.RequestDispatcher;
