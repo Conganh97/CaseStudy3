@@ -21,10 +21,14 @@
 <p>
     <a href="/sanpham">Back to product list</a>
 </p>
-<form method="post">
+<form method="post" action="/sanpham">
     <fieldset>
         <legend>Product information</legend>
         <table>
+            <tr>
+                <td>ID: </td>
+                <td><input type="text" name="id" id="id" value="${requestScope["sanpham"].getIdsp()}" hidden></td>
+            </tr>
             <tr>
                 <td>NameP: </td>
                 <td><input type="text" name="tensp" id="tensp" value="${requestScope["sanpham"].getTensp()}"></td>

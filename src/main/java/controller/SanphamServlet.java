@@ -1,8 +1,8 @@
-package controller;
+package Controller;
 
 import Models.Sanpham;
 import com.sun.tools.doclint.HtmlTag;
-import dao.SanPhamDao;
+import Dao.SanPhamDao;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -121,7 +121,7 @@ public class SanphamServlet extends HttpServlet {
         String img = request.getParameter("img");
         String loaisp = request.getParameter("loaisp");
         Sanpham sanpham = new Sanpham(tensp, dvt, mota, gia, img, loaisp);
-        sanPhamDao.create(sanpham);
+        sanPhamDao.edit(idsp,sanpham);
         listStudent(request,response);
     }
 

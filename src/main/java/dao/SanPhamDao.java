@@ -1,4 +1,4 @@
-package dao;
+package Dao;
 
 import Models.Sanpham;
 import Connect.ConnectMySql;

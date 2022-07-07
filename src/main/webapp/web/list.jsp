@@ -14,14 +14,6 @@
         <a href="/sanpham?action=create">Add</a>
     </h2>
 
-<%--    <div class="input-group">--%>
-<%--        <form method="post" action="/students?action=search">--%>
-<%--            <input id="search" name="tensp" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />--%>
-<%--            <button type="submit" class="btn btn-outline-primary">Search</button>--%>
-<%--        </form>--%>
-<%--    </div>--%>
-
-
     <table border="1" cellpadding="5">
         <tr>
             <th>ID</th>
