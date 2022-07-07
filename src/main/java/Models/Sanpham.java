@@ -19,6 +19,15 @@ public class Sanpham {
         this.loaisp = loaisp;
     }
 
+    public Sanpham(String tensp, String dvt, String mota, Float gia, String img, String loaisp) {
+        this.tensp = tensp;
+        this.dvt = dvt;
+        this.mota = mota;
+        this.gia = gia;
+        this.img = img;
+        this.loaisp = loaisp;
+    }
+
     public Sanpham() {
     }
 
