@@ -24,7 +24,7 @@ public class CheckLogin implements Filter {
                 dispatcher = request.getRequestDispatcher("/admin.jsp");
                 dispatcher.forward(request, response);
             } else {
-                dispatcher = request.getRequestDispatcher("/giohang.jsp");
+                dispatcher = request.getRequestDispatcher("/giohang");
                 dispatcher.forward(request, response);
             }
         }

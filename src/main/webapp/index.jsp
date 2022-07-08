@@ -1,3 +1,7 @@
+<%@ page import="Dao.SanPhamDao" %>
+<%@ page import="Models.Sanpham" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -276,204 +280,40 @@
 
       <div class="filters-content">
         <div class="row grid">
-          <div class="col-sm-6 col-lg-4 all pizza">
-            <div class="box">
-              <div>
-                <div class="img-box">
-                  <img src="images/f1.png" alt="">
-                </div>
-                <div class="detail-box">
-                  <h5>
-                    Delicious Pizza
-                  </h5>
-                  <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
-                  </p>
-                  <div class="options">
-                    <h6>
-                      $20
-                    </h6>
+          <%
+            SanPhamDao sanPhamDao = new SanPhamDao();
+            List<Sanpham> list = sanPhamDao.getAll();
+            List<Sanpham> newList = new ArrayList<>();
+            newList.add(list.get(0));
+            newList.add(list.get(1));
+            newList.add(list.get(3));
+            newList.add(list.get(4));
+            request.setAttribute("listMenu",newList);
+          %>
+          <c:forEach var="list" items="${listMenu}">
+            <div class="col-sm-6 col-lg-4 all ${list.loaisp}">
+              <div class="box">
+                <div>
+                  <div class="img-box">
+                    <img src="images/${list.img}.png" alt="">
+                  </div>
+                  <div class="detail-box">
+                    <h5>
+                      <c:out value="${list.tensp}"/>
+                    </h5>
+                    <p>
+                      <c:out value="${list.mota}"/>
+                    </p>
+                    <div class="options">
+                      <h6>
+                        $<c:out value="${list.gia}"/>
+                      </h6>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-sm-6 col-lg-4 all burger">
-            <div class="box">
-              <div>
-                <div class="img-box">
-                  <img src="images/f2.png" alt="">
-                </div>
-                <div class="detail-box">
-                  <h5>
-                    Delicious Burger
-                  </h5>
-                  <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
-                  </p>
-                  <div class="options">
-                    <h6>
-                      $15
-                    </h6>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-<!--          <div class="col-sm-6 col-lg-4 all pizza">-->
-<!--            <div class="box">-->
-<!--              <div>-->
-<!--                <div class="img-box">-->
-<!--                  <img src="images/f3.png" alt="">-->
-<!--                </div>-->
-<!--                <div class="detail-box">-->
-<!--                  <h5>-->
-<!--                    Delicious Pizza-->
-<!--                  </h5>-->
-<!--                  <p>-->
-<!--                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque-->
-<!--                  </p>-->
-<!--                  <div class="options">-->
-<!--                    <h6>-->
-<!--                      $17-->
-<!--                    </h6>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-          <div class="col-sm-6 col-lg-4 all pasta">
-            <div class="box">
-              <div>
-                <div class="img-box">
-                  <img src="images/f4.png" alt="">
-                </div>
-                <div class="detail-box">
-                  <h5>
-                    Delicious Pasta
-                  </h5>
-                  <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
-                  </p>
-                  <div class="options">
-                    <h6>
-                      $18
-                    </h6>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-4 all fries">
-            <div class="box">
-              <div>
-                <div class="img-box">
-                  <img src="images/f5.png" alt="">
-                </div>
-                <div class="detail-box">
-                  <h5>
-                    French Fries
-                  </h5>
-                  <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
-                  </p>
-                  <div class="options">
-                    <h6>
-                      $10
-                    </h6>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-<!--          <div class="col-sm-6 col-lg-4 all pizza">-->
-<!--            <div class="box">-->
-<!--              <div>-->
-<!--                <div class="img-box">-->
-<!--                  <img src="images/f6.png" alt="">-->
-<!--                </div>-->
-<!--                <div class="detail-box">-->
-<!--                  <h5>-->
-<!--                    Delicious Pizza-->
-<!--                  </h5>-->
-<!--                  <p>-->
-<!--                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque-->
-<!--                  </p>-->
-<!--                  <div class="options">-->
-<!--                    <h6>-->
-<!--                      $15-->
-<!--                    </h6>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="col-sm-6 col-lg-4 all burger">-->
-<!--            <div class="box">-->
-<!--              <div>-->
-<!--                <div class="img-box">-->
-<!--                  <img src="images/f7.png" alt="">-->
-<!--                </div>-->
-<!--                <div class="detail-box">-->
-<!--                  <h5>-->
-<!--                    Tasty Burger-->
-<!--                  </h5>-->
-<!--                  <p>-->
-<!--                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque-->
-<!--                  </p>-->
-<!--                  <div class="options">-->
-<!--                    <h6>-->
-<!--                      $12-->
-<!--                    </h6>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="col-sm-6 col-lg-4 all burger">-->
-<!--            <div class="box">-->
-<!--              <div>-->
-<!--                <div class="img-box">-->
-<!--                  <img src="images/f8.png" alt="">-->
-<!--                </div>-->
-<!--                <div class="detail-box">-->
-<!--                  <h5>-->
-<!--                    Tasty Burger-->
-<!--                  </h5>-->
-<!--                  <p>-->
-<!--                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque-->
-<!--                  </p>-->
-<!--                  <div class="options">-->
-<!--                    <h6>-->
-<!--                      $14-->
-<!--                    </h6>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="col-sm-6 col-lg-4 all pasta">-->
-<!--            <div class="box">-->
-<!--              <div>-->
-<!--                <div class="img-box">-->
-<!--                  <img src="images/f9.png" alt="">-->
-<!--                </div>-->
-<!--                <div class="detail-box">-->
-<!--                  <h5>-->
-<!--                    Delicious Pasta-->
-<!--                  </h5>-->
-<!--                  <p>-->
-<!--                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque-->
-<!--                  </p>-->
-<!--                  <div class="options">-->
-<!--                    <h6>-->
-<!--                      $10-->
-<!--                    </h6>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
+          </c:forEach>
         </div>
       </div>
       <div class="btn-box">

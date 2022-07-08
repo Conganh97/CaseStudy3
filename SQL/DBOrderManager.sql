@@ -85,4 +85,6 @@ $$
 
 insert into hoadon values (1,'2022-07-06',2,0) , (2,'2022-07-06',2,0);
 insert into cthd values (1,2,3),(1,3,5);
-delete cthd 
+
+ALTER TABLE `ordermanager`.`user` 
+ADD UNIQUE INDEX `tk_UNIQUE` (`tk` ASC) VISIBLE;

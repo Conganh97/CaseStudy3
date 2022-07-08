@@ -1,6 +1,7 @@
 package Controller;
 
 import Dao.SanPhamDao;
+import Models.Login;
 import Models.Sanpham;
 
 import javax.servlet.RequestDispatcher;
@@ -36,6 +37,10 @@ public class AdminServlet extends HttpServlet {
                     break;
                 case "delete":
                     showDeleteForm(req, resp);
+                    break;
+                case "logout":
+                    Login.user = null;
+                    resp.sendRedirect("/index.jsp");
                     break;
                 default:
                     listStudent(req, resp);

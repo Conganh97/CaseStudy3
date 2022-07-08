@@ -31,8 +31,7 @@ public class UserDao implements CRUD<User>{
             String ten = resultSet.getString("ten");
             String gioitinh = resultSet.getString("gioitinh");
             String diachi = resultSet.getString("diachi");
-
-            return new User(id,tk,mk,chucvu,sdt,ten,gioitinh,diachi);
+            return new User(tk,mk,chucvu,sdt,ten,gioitinh,diachi);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -54,7 +53,7 @@ public class UserDao implements CRUD<User>{
             String gioitinh = resultSet.getString("gioitinh");
             String diachi = resultSet.getString("diachi");
 
-            return new User(iduser, tk, mk, chucvu, sdt, ten, gioitinh,diachi);
+            return new User( tk, mk, chucvu, sdt, ten, gioitinh,diachi);
 
         } catch (SQLException e) {
             printSQLException(e);

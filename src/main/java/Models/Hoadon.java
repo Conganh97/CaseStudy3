@@ -5,16 +5,16 @@ import java.util.Date;
 public class Hoadon {
     private int idhd;
     private Date ngxuathd;
-    private int iduser;
+    private String ten;
     private float trigia;
 
     public Hoadon() {
     }
 
-    public Hoadon(int idhd, Date ngxuathd, int iduser, float trigia) {
+    public Hoadon(int idhd, Date ngxuathd, String ten, float trigia) {
         this.idhd = idhd;
         this.ngxuathd = ngxuathd;
-        this.iduser = iduser;
+        this.ten = ten;
         this.trigia = trigia;
     }
 
@@ -34,12 +34,12 @@ public class Hoadon {
         this.ngxuathd = ngxuathd;
     }
 
-    public int getIduser() {
-        return iduser;
+    public String getTen() {
+        return ten;
     }
 
-    public void setIduser(int iduser) {
-        this.iduser = iduser;
+    public void setTen(String ten) {
+        this.ten = ten;
     }
 
     public float getTrigia() {

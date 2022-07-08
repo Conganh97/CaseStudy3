@@ -67,6 +67,11 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/web/bill.jsp">Bill</a>
                         </li>
+
+                        <li class="nav-item">
+                            <button style="width: 100px ; height: 40px; font-size: 17px" type="button" class="btn btn-secondary"><a style="background: none ; color: white" href="/index?action=logout">Log out</a></button>
+
+                        </li>
                     </ul>
                 </div>
             </nav>

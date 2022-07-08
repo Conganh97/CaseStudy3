@@ -1,5 +1,7 @@
 package Controller;
 
+import Models.Login;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,14 +20,11 @@ public class IndexServlet extends HttpServlet {
         }
         RequestDispatcher dispatcher = null;
         switch (action) {
-            case "create":
+            case "logout":
+                Login.user = null;
+                resp.sendRedirect("/index.jsp");
                 break;
-            case "search":
-                break;
-            case "giohang":
-                dispatcher = req.getRequestDispatcher("/giohang.jsp");
-                dispatcher.forward(req,resp);
-                break;
+
             default:
         }
     }

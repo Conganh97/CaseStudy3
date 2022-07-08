@@ -76,7 +76,7 @@ public class MenuServlet extends HttpServlet {
         String gioitinh = request.getParameter("gioitinh");
         String diachi = request.getParameter("diachi");
 
-        User user = new User(iduser, tk, mk, chucvu, sdt, ten, gioitinh, diachi);
+        User user = new User(tk, mk, chucvu, sdt, ten, gioitinh, diachi);
         userDao.edit(iduser, user);
         response.sendRedirect("/menu.jsp");
     }

@@ -12,17 +12,6 @@ public class User {
     private String gioitinh;
     private String diachi;
 
-    public User(int iduser, String tk, String mk, String chucvu, String sdt, String ten, String gioitinh, String diachi) {
-        this.iduser = iduser;
-        this.tk = tk;
-        this.mk = mk;
-        this.chucvu = chucvu;
-        this.sdt = sdt;
-        this.ten = ten;
-        this.gioitinh = gioitinh;
-        this.diachi = diachi;
-    }
-
     public User(String tk, String mk, String chucvu, String sdt, String ten, String gioitinh, String diachi) {
         this.tk = tk;
         this.mk = mk;
