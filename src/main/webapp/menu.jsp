@@ -70,7 +70,7 @@
               </li>
             </ul>
             <div class="user_option">
-              <a href="/login" class="user_link">
+              <a href="/menu?action=editUser" class="user_link">
                 <i class="fa fa-user" aria-hidden="true"></i>
               </a>
               <a class="cart_link" href="/giohang">
@@ -102,6 +102,12 @@
                   <i class="fa fa-search" aria-hidden="true"></i>
                 </button>
               </form>
+
+                <a href="/index?action=logout" class="btn btn-info btn-lg">
+                  <span class="glyphicon glyphicon-log-out"></span> Log out
+                </a>
+
+
             </div>
           </div>
         </nav>

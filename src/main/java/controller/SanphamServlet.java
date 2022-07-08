@@ -120,6 +120,7 @@ public class SanphamServlet extends HttpServlet {
         String img = request.getParameter("img");
         String loaisp = request.getParameter("loaisp");
         Sanpham sanpham = new Sanpham(idsp,tensp, dvt, mota, gia, img, loaisp);
+
         sanPhamDao.edit(idsp,sanpham);
         listStudent(request,response);
     }
