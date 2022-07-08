@@ -1,17 +1,27 @@
 package Models;
 
 public class GioHang {
+    private int idsp;
     private String tensp;
     private float gia;
     private int sl;
 
-    public GioHang(String tensp, float gia, int sl) {
+    public GioHang(int idsp,String tensp, float gia, int sl) {
+        this.idsp = idsp;
         this.tensp = tensp;
         this.gia = gia;
         this.sl = sl;
     }
 
     public GioHang() {
+    }
+
+    public int getIdsp() {
+        return idsp;
+    }
+
+    public void setIdsp(int idsp) {
+        this.idsp = idsp;
     }
 
     public String getTensp() {
