@@ -2,6 +2,7 @@ package Controller;
 
 import Dao.UserDao;
 import Models.Login;
+import Models.Sanpham;
 import Models.User;
 
 import javax.servlet.RequestDispatcher;
@@ -12,6 +13,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.text.ParseException;
 
 @WebServlet (urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
@@ -29,6 +32,7 @@ public class LoginServlet extends HttpServlet {
             RequestDispatcher dispatcher = req.getRequestDispatcher("/login.jsp");
             dispatcher.forward(req, resp);
         }
+
     }
 
     @Override
@@ -38,6 +42,7 @@ public class LoginServlet extends HttpServlet {
 
         User user = userDao.getUser(username, password);
         if (user != null) {
+
             Login.user = user;
             if (user.getChucvu().equals("admin")) {
                 resp.sendRedirect("/admin.jsp");
@@ -49,4 +54,11 @@ public class LoginServlet extends HttpServlet {
             dispatcher.forward(req, resp);
         }
     }
+
+
+
+
+
+
+
 }

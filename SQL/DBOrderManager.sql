@@ -7,8 +7,8 @@ mk varchar(50) NOT NULL,
 chucvu varchar(50) NOT NULL,
 sdt varchar(15) not null,
 ten varchar (50) not null,
-gioitinh varchar (50),
-diachi varchar (50)
+gioitinh varchar (50) not null,
+diachi varchar (50) not null
 );
 	
 CREATE TABLE SanPham (

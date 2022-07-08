@@ -99,6 +99,13 @@
                   <i class="fa fa-search" aria-hidden="true"></i>
                 </button>
               </form>
+
+              <form action="/logout" method="post">
+                <a href="/login" class="btn btn-info btn-lg">
+                  <span class="glyphicon glyphicon-log-out"></span> Log out
+                </a>
+              </form>
+
             </div>
           </div>
         </nav>

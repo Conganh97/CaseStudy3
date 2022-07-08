@@ -68,8 +68,15 @@
                     </div>
 
                 </form>
-                <div class="copy-text">Created with <i class="fa fa-heart"></i> by Grafreez</div>
+
+
+
+<%--                <div class="text-center small">Don't have an account? <a href="#">Sign up</a></div>--%>
+                <div class="copy-text">Don't have an account? <a href="/register">Sign up</a></div>
             </div>
+
+
+
             <div class="col-md-8 banner-sec">
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
