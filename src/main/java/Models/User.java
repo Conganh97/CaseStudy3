@@ -22,6 +22,15 @@ public class User {
         this.diachi = diachi;
     }
 
+    public User(int iduser, String mk, String sdt, String ten, String gioitinh, String diachi) {
+        this.iduser = iduser;
+        this.mk = mk;
+        this.sdt = sdt;
+        this.ten = ten;
+        this.gioitinh = gioitinh;
+        this.diachi = diachi;
+    }
+
     public int getIduser() {
         return iduser;
     }

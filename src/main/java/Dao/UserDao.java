@@ -14,6 +14,7 @@ public class UserDao implements CRUD<User>{
     private static final String SELECT_USER_BY_ID_MK = "select * from user where tk = ? and mk =?";
     private static final String SELECT_USER_BY_ID = "Select tk,mk,chucvu,sdt,ten,gioitinh,diachi where id = ?";
     private static final String INSERT_USER_SQL = "INSERT INTO user (tk,mk,chucvu,sdt,ten,gioitinh,diachi) VALUES (?,?,?,?,?,?,?);";
+    private static final String UPDATE_USER_SQL = "UPDATE user set mk = ?,sdt = ?,ten = ?,gioitinh = ?,diachi = ? where iduser= ?;";
 
 
     public User getUser (String user, String pass){
@@ -88,7 +89,20 @@ public class UserDao implements CRUD<User>{
 
     @Override
     public boolean edit(int id, User user) {
-        return false;
+        boolean check = false;
+        try (Connection connection = ConnectMySql.getConnect()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_USER_SQL);
+            preparedStatement.setInt(6, user.getIduser());
+            preparedStatement.setString(1, user.getMk());
+            preparedStatement.setString(2,user.getSdt());
+            preparedStatement.setString(3, user.getTen());
+            preparedStatement.setString(4, user.getGioitinh());
+            preparedStatement.setString(5, user.getDiachi());
+            check = preparedStatement.executeUpdate() >0;
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+        return check;
     }
 
     @Override

@@ -8,22 +8,21 @@
 <body>
 <h1>Edit Information</h1>
 <p>
-    <c:if test="${message} !=null">
-        <span class="message">${message}</span>
-    </c:if>
+    <span class="message">${message}</span>
 </p>
+
 <p>
-    <a href="/login">Back to login</a>
+    <a href="/menu?action=backmenu">Back to Menu</a>
 </p>
 <form method="post">
     <fieldset>
         <legend>Profile</legend>
         <table>
-            <c:if test="${user != null}">
-                <input type="text" name="id" value="<c:out value='${user.getIduser()}' />" hidden/>
-            </c:if>
+
+            <input type="text" name="id" value="<c:out value='${user.iduser}' />" hidden/>
+
+
             <input type="text" name="tk" id="tk" value="${requestScope["user"].getTk()}" hidden/>
-            <input type="text" name="mota" id="mota" value="${requestScope["user"].getChucvu()}" hidden/>
 
             <tr>
                 <td>Full Name: </td>
@@ -42,6 +41,11 @@
             <tr>
                 <td>Gender: </td>
                 <td><input type="text" name="gioitinh" id="gioitinh" value="${requestScope["user"].getGioitinh()}"></td>
+            </tr>
+
+            <tr>
+                <td>Địa chỉ: </td>
+                <td><input type="text" name="diachi" id="diachi" value="${requestScope["user"].getDiachi()}"></td>
             </tr>
 
             <tr>
