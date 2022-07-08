@@ -74,19 +74,19 @@ public class SanphamServlet extends HttpServlet {
         List<Sanpham> listSanpham = sanPhamDao.getAll();
 
         request.setAttribute("listSanpham", listSanpham);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("web/listP.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("web/list.jsp");
         dispatcher.forward(request,response);
     }
 
     private void showNewForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("web/createP.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("web/create.jsp");
         dispatcher.forward(request, response);
     }
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         Sanpham existingSanpham= sanPhamDao.findById(id);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("web/editP.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("web/edit.jsp");
         request.setAttribute("sanpham", existingSanpham);
         dispatcher.forward(request,response);
     }
@@ -95,7 +95,7 @@ public class SanphamServlet extends HttpServlet {
             throws SQLException, ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         Sanpham existingSanpham = sanPhamDao.findById(id);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("web/deleteP.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("web/delete.jsp");
         request.setAttribute("sanpham", existingSanpham);
         dispatcher.forward(request, response);
     }
