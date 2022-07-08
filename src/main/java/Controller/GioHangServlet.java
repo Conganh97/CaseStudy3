@@ -35,9 +35,11 @@ public class GioHangServlet extends HttpServlet{
                 case "create":
                     createOrder(request, response);
                     break;
+                case "chitiet":
+                    showChiTiet(request, response);
+                    break;
                 default:
-                    RequestDispatcher requestDispatcher = request.getRequestDispatcher("/lichsu.jsp");
-                    requestDispatcher.forward(request,response);
+                    showLichSu(request, response);
             }
         }catch (SQLException | ParseException ex){
             throw new ServletException(ex);
@@ -87,6 +89,23 @@ public class GioHangServlet extends HttpServlet{
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/hoadon.jsp");
         request.setAttribute("list",gioHangList);
         request.setAttribute("hoadon",hoadon);
+        requestDispatcher.forward(request,response);
+    }
+
+    private void showLichSu(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException, ParseException {
+        List<Hoadon> hoadonList = gioHangDao.findHDByIdUser(Login.user.getIduser());
+
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/lichsu.jsp");
+        request.setAttribute("list",hoadonList);
+        requestDispatcher.forward(request,response);
+    }
+
+    private void showChiTiet(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException, ParseException {
+        int idhd = Integer.parseInt(request.getParameter("idhdct"));
+        List<GioHang> gioHangList = gioHangDao.findCTHDByIdhd(idhd);
+
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/cthd.jsp");
+        request.setAttribute("list",gioHangList);
         requestDispatcher.forward(request,response);
     }
 }

@@ -2,6 +2,8 @@ package Dao;
 
 import Connect.ConnectMySql;
 import Models.GioHang;
+import Models.Hoadon;
+import Models.Login;
 import Models.Sanpham;
 
 import java.sql.*;
@@ -50,6 +52,55 @@ public class GioHangDao implements CRUD<GioHang> {
             printSQLException(e);
         }
         return gioHang;
+    }
+
+    public List<Hoadon> findHDByIdUser(int iduser) {
+        List<Hoadon> hoadonList = new ArrayList<>();
+        try (Connection connection = ConnectMySql.getConnect()
+        ) { String sql = "select idhd, ngxuathd, trigia from hoadon where iduser =?";
+            assert connection != null;
+            try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+                preparedStatement.setInt(1, iduser);
+                System.out.println(preparedStatement);
+                ResultSet rs = preparedStatement.executeQuery();
+
+                while (rs.next()) {
+                    int idhd = Integer.parseInt(rs.getString("idhd"));
+                    Date ngxuathd = rs.getDate("ngxuathd");
+                    float trigia = Float.parseFloat(rs.getString("trigia"));
+                    hoadonList.add(new Hoadon(idhd,ngxuathd, Login.user.getTen(), trigia));
+                }
+
+            }
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+        return hoadonList;
+    }
+
+    public List<GioHang> findCTHDByIdhd(int idhd) {
+        List<GioHang> gioHangList = new ArrayList<>();
+        try (Connection connection = ConnectMySql.getConnect()
+        ) { String sql = "select s.idsp,s.tensp,gia,c.sl from cthd c join sanpham s on c.idsp = s.idsp where idhd = ?;";
+            assert connection != null;
+            try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+                preparedStatement.setInt(1, idhd);
+                System.out.println(preparedStatement);
+                ResultSet rs = preparedStatement.executeQuery();
+
+                while (rs.next()) {
+                    int idsp = Integer.parseInt(rs.getString("idsp"));
+                    String tensp = rs.getString("tensp");
+                    float gia = Float.parseFloat(rs.getString("gia"));
+                    int sl = Integer.parseInt(rs.getString("sl"));
+                    gioHangList.add(new GioHang(idsp,tensp, gia, sl));
+                }
+
+            }
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+        return gioHangList;
     }
 
     public boolean createHoaDon(Date ngxuathd, int iduser) {
