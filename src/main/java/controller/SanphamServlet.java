@@ -74,19 +74,19 @@ public class SanphamServlet extends HttpServlet {
         List<Sanpham> listSanpham = sanPhamDao.getAll();
 
         request.setAttribute("listSanpham", listSanpham);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("web/list.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("web/listP.jsp");
         dispatcher.forward(request,response);
     }
 
     private void showNewForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("web/create.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("web/createP.jsp");
         dispatcher.forward(request, response);
     }
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         Sanpham existingSanpham= sanPhamDao.findById(id);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("web/edit.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("web/editP.jsp");
         request.setAttribute("sanpham", existingSanpham);
         dispatcher.forward(request,response);
     }
@@ -95,7 +95,7 @@ public class SanphamServlet extends HttpServlet {
             throws SQLException, ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         Sanpham existingSanpham = sanPhamDao.findById(id);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("web/delete.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("web/deleteP.jsp");
         request.setAttribute("sanpham", existingSanpham);
         dispatcher.forward(request, response);
     }
@@ -120,7 +120,7 @@ public class SanphamServlet extends HttpServlet {
         Float gia = Float.valueOf(request.getParameter("gia"));
         String img = request.getParameter("img");
         String loaisp = request.getParameter("loaisp");
-        Sanpham sanpham = new Sanpham(tensp, dvt, mota, gia, img, loaisp);
+        Sanpham sanpham = new Sanpham(idsp, tensp, dvt, mota, gia, img, loaisp);
         sanPhamDao.edit(idsp,sanpham);
         listStudent(request,response);
     }

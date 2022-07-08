@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Tinh Chu
-  Date: 7/6/2022
-  Time: 5:07 PM
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -21,14 +15,13 @@
 <p>
     <a href="/sanpham">Back to product list</a>
 </p>
-<form method="post" action="/sanpham">
+<form method="post">
     <fieldset>
         <legend>Product information</legend>
         <table>
-            <tr>
-                <td>ID: </td>
-                <td><input type="text" name="id" id="id" value="${requestScope["sanpham"].getIdsp()}" hidden></td>
-            </tr>
+            <c:if test="${sanpham != null}">
+                <input type="hidden" name="id" value="<c:out value='${sanpham.idsp}' />"/>
+            </c:if>
             <tr>
                 <td>NameP: </td>
                 <td><input type="text" name="tensp" id="tensp" value="${requestScope["sanpham"].getTensp()}"></td>
