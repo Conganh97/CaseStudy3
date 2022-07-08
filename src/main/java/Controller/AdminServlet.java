@@ -1,7 +1,7 @@
 package Controller;
 
-import Models.Sanpham;
 import Dao.SanPhamDao;
+import Models.Sanpham;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,77 +12,74 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.ParseException;
-import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(urlPatterns = "/sanpham")
-public class SanphamServlet extends HttpServlet {
+@WebServlet (urlPatterns = "/admin")
+public class AdminServlet extends HttpServlet {
     SanPhamDao sanPhamDao = new SanPhamDao();
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getParameter("action");
-        if (action == null) {
-            action = "";
-        }
-
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String action = req.getParameter("action");
+        RequestDispatcher dispatcher = null;
         try {
+            if (action == null) {
+                action = "";
+            }
             switch (action) {
                 case "create":
-                    showNewForm(request, response);
+                    showCreateForm(req, resp);
                     break;
                 case "edit":
-                    showEditForm(request, response);
+                    showEditForm(req, resp);
                     break;
                 case "delete":
-                    showDeleteForm(request, response);
+                    showDeleteForm(req, resp);
                     break;
                 default:
-                    listStudent(request, response);
+                    listStudent(req, resp);
                     break;
             }
         } catch (SQLException ex) {
             throw new ServletException(ex);
         }
     }
+
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getParameter("action");
-        if(action == null) {
-            action = "";
-        }
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String action = req.getParameter("action");
         try {
+            if (action == null) {
+                action = "";
+            }
             switch (action) {
                 case "create":
-                   createSanpham(request, response);
+                    createSanpham(req, resp);
                     break;
                 case "edit":
-                    editSanpham(request, response);
+                    editSanpham(req, resp);
                     break;
                 case "delete":
-                    deleteSanpham(request, response);
+                    deleteSanpham(req, resp);
                     break;
             }
         }catch (SQLException | ParseException ex){
             throw new ServletException(ex);
         }
     }
-
-
-
     private void listStudent(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
         List<Sanpham> listSanpham = sanPhamDao.getAll();
 
-        request.setAttribute("listSanpham", listSanpham);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("web/list.jsp");
+        request.setAttribute("listMenu", listSanpham);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("admin.jsp");
         dispatcher.forward(request,response);
     }
 
-    private void showNewForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+    private void showCreateForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("web/create.jsp");
         dispatcher.forward(request, response);
     }
-
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         Sanpham existingSanpham= sanPhamDao.findById(id);
