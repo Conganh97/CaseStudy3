@@ -58,7 +58,7 @@ public class GioHangServlet extends HttpServlet{
                     createThanhToan(request, response);
                     break;
                 default:
-                    RequestDispatcher requestDispatcher = request.getRequestDispatcher("/lichsu.jsp");
+                    RequestDispatcher requestDispatcher = request.getRequestDispatcher("/giohang");
                     requestDispatcher.forward(request,response);
             }
         }catch (SQLException | ParseException ex){

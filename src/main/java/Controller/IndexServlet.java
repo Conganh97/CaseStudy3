@@ -22,6 +22,7 @@ public class IndexServlet extends HttpServlet {
         switch (action) {
             case "logout":
                 Login.user = null;
+                GioHangServlet.gioHangList.clear();
                 resp.sendRedirect("/index.jsp");
                 break;
             case "search":
